@@ -7,14 +7,14 @@ const description = ref('')
 const editingTaskId = ref(null)
 
 onMounted(async () => {
-  const response = await fetch('http://127.0.0.1:8000/api/tasks/')
+  const response = await fetch('/api/tasks/')
   tasks.value = await response.json()
 })
 
 const addTask = async () => {
   console.log('addTaskが呼ばれました')
 
-  const response = await fetch('http://127.0.0.1:8000/api/tasks/', {
+  const response = await fetch('/api/tasks/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const addTask = async () => {
 }
 
 const deleteTask = async (task) => {
-  await fetch(`http://127.0.0.1:8000/api/tasks/${task.id}/`, {
+  await fetch(`/api/tasks/${task.id}/`, {
     method: 'DELETE',
   })
 
@@ -43,7 +43,7 @@ const deleteTask = async (task) => {
 }
 
 const toggleTask = async (task) => {
-  const response = await fetch(`http://127.0.0.1:8000/api/tasks/${task.id}/`, {
+  const response = await fetch(`/api/tasks/${task.id}/`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const startEdit = (task) => {
 
 const updateTask = async () => {
   const response = await fetch(
-    `http://127.0.0.1:8000/api/tasks/${editingTaskId.value}/`,
+    `/api/tasks/${editingTaskId.value}/`,
     {
       method: 'PATCH',
       headers: {

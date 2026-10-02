@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c_vhr&#u3an+s(b&s5m0b%a5!-m+00e8lly$ikdy$1%e3_eg!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.198.78.242']
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'task_management',
-        'USER': 'postgres',
+        'USER': 'task_user',
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         # 'PASSWORD': 'Takahiro@502',
         'HOST': 'localhost',
@@ -138,5 +138,5 @@ MAILERS = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
+        'http://172.198.78.242:5173',
 ]
